@@ -1,10 +1,10 @@
-$(function() {
+$("button").click(function() {
   $.ajax({
     url: "http://localhost/flood/BS3/charts/fusion_chart_demo.php",
     type: "GET",
     success: function(data) {
-      document.write("Hii");
-      chartData = data;
+      console.log(data);
+      chartData = JSON.parse(data);
       var chartProperties = {
         caption: "Top 10 wicket takes ODI Cricket in 2015",
         xAxisName: "Player",
@@ -24,6 +24,7 @@ $(function() {
         }
       });
       apiChart.render();
-    }
-  });
-});
+    } // success end
+  }); // ajax end
+
+}); // click end
